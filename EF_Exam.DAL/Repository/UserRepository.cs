@@ -10,32 +10,33 @@ namespace EF_Exam.DAL.Repository
         {
             _context = context;
         }
-        public  Task<User> GetUserById(int id)
+        public void AddUser(User user)
         {
-            return  _context.Users.Find(id);
+            _context.Users.Add(user);
+            _context.SaveChanges();
         }
-        public  Task<IEnumerable<User>> GetAllUsers()
+        public User GetUserById(int id)
         {
-            return  _context.Users.ToList();
+            return _context.Users.Find(id);
         }
-        public  Task AddUser(User user)
+        public List<User> GetAllUsers()
         {
-             _context.Users.Add(user);
-             _context.SaveChanges();
+            return _context.Users.ToList();
         }
-        public  Task UpdateUser(User user)
+        public void UpdateUser(User user)
         {
             _context.Users.Update(user);
-             _context.SaveChanges();
+            _context.SaveChanges();
         }
-        public  Task DeleteUser(int id)
+        public void DeleteUser(int id)
         {
-            var user =  GetUserById(id);
+            var user = _context.Users.Find(id);
             if (user != null)
             {
                 _context.Users.Remove(user);
-                 _context.SaveChanges();
+                _context.SaveChanges();
             }
         }
+
     }
 }
