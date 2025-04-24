@@ -1,6 +1,6 @@
 ﻿using EF_Exam.DAL.Entities;
 
-namespace EF_Exam.DAL.Repository
+namespace EF_Exam.DAL
 {
     public class ProductRepository
     {
@@ -29,7 +29,7 @@ namespace EF_Exam.DAL.Repository
         }
         public void DeleteProduct(int id)
         {
-            var product = _context.Products.Find(id);
+            var product = _context.Products.Find(id) ;
             if (product != null)
             {
                 _context.Products.Remove(product);

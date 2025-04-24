@@ -1,6 +1,6 @@
 ﻿using EF_Exam.DAL.Entities;
 
-namespace EF_Exam.DAL.Repository
+namespace EF_Exam.DAL
 {
     public class OrderRepository
     {
@@ -9,6 +9,12 @@ namespace EF_Exam.DAL.Repository
         {
             _context = context;
         }
+
+        public IEnumerable<Order> GetAll()
+        {
+            return _context.Orders;
+        }
+
         public void AddOrder(Order Order)
         {
             _context.Orders.Add(Order);
@@ -36,5 +42,6 @@ namespace EF_Exam.DAL.Repository
                 _context.SaveChanges();
             }
         }
+
     }
 }

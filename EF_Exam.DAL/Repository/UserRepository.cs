@@ -1,7 +1,7 @@
 ﻿using EF_Exam.DAL;
 using EF_Exam.DAL.Entities;
 
-namespace EF_Exam.DAL.Repository
+namespace EF_Exam.DAL
 {
     public class UserRepository
     {
